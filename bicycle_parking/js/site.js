@@ -4,7 +4,7 @@ function init() {
 
 	var map = L.map('map').setView([47.650125, -122.350960], 16);
 	L.tileLayer('http://{s}.tiles.mapbox.com/v3/examples.map-i86nkdio/{z}/{x}/{y}.png', {
-		attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
+		attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a>',
 		maxZoom: 18
 	}).addTo(map);
 
