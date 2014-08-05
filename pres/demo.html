@@ -1,35 +1,65 @@
 <!DOCTYPE html><html><head><title>Big</title><meta charset='utf-8'><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
 <link href='big.css' rel='stylesheet' type='text/css' />
 <style>
-  .new-shiny { background: #aaaaaa; }
+  body {
+    background-color:#444444;
+    color:#e9e9e9;
+  }
+  a {
+    background-color:#6fdc6f;
+    opacity:.8;
+  }
+  a:hover {
+    opacity:1;
+  }
+  ol {
+    margin-left:150px;
+  }
+  strong {
+    color:#d75a5a;
+  }
+  em {
+    text-decoration:underline;
+    color:#e9e9e9;
+  }
+  small {
+    font-size:.4em;
+    line-height:.4em;
+  }
+  .center { text-align:center; }
+  pre {
+    color:#c0c0c0;
+    font-weight:100;
+  }
+  pre span {
+    color:#4682B4;
+  }
+  pre em {
+    color:#e79e19;
+    text-decoration:none;
+  }
 </style>
 <script src='big.js'></script></head><body>
 
-<div>use &harr; to navigate</div>
-<div>Big</div>
-<div class="center"><em>Presentation software</em> for busy busy hackers</div>
-<div>+text</div>
-<div>as <em>big</em> as it can be</div>
-<div data-time-to-next="3">and now it's perfect for ignite talks (wait 3 seconds)</div>
-<div>no config</div>
-<div><em>1.5k</em></div>
-<div><img src='http://farm3.static.flickr.com/2506/5757000880_509440308e_z.jpg' /> images too</div>
-<div data-bodyclass="new-shiny">per slide body classes</div>
-<div>JS+CSS <a href='https://github.com/tmcw/big'>github.com/ tmcw/ big</a></div>
+<div class="center">Web Maps<br>&<br>OSM</div>
+<div>slides & examples @<br><a href="http://mapsam.com/osm10/pres">mapsam.com/osm10/</a></div>
+<div>order of events:
+  <ol>
+    <li>OSM <strong>Overpass</strong></li>
+    <li><strong>Leaflet</strong></li>
+    <li>Make a <strong>Map</strong></li>
+  </ol>
+</div>
+<div><strong>1. Overpass</strong><br>The Overpass API is a <em>read-only</em> API that serves up <em>custom</em> selected parts of the OSM map data. - <a href="http://wiki.openstreetmap.org/wiki/Overpass_API">src</a></div>
+<div>Query language based on bounding box and OSM Tags<br>
+<pre>
+&lt;<em>query</em> type="node"&gt;
+  &lt;<em>has-kv</em> k="<span>KEY</span>" v="<span>VALUE</span>"/&gt;
+  &lt;<em>bbox-query</em> <span>{{bbox}}</span>/&gt;
+&lt;/<em>query</em>&gt;
+</pre>
+</div>
 
-<script type="text/javascript">
-  var _gauges = _gauges || [];
-  (function() {
-    var t   = document.createElement('script');
-    t.type  = 'text/javascript';
-    t.async = true;
-    t.id    = 'gauges-tracker';
-    t.setAttribute('data-site-id', '4e36eb1ef5a1f53d6f000001');
-    t.src = '//secure.gaug.es/track.js';
-    var s = document.getElementsByTagName('script')[0];
-    s.parentNode.insertBefore(t, s);
-  })();
-</script>
 
 </body>
 </html>
