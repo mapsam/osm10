@@ -1,109 +1,84 @@
-<!DOCTYPE html><html><head><title></title><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" /><style type='text/css'>
-body {
-  font-family: 'Helvetica';
-  letter-spacing:-5px;
-  background:#000;
-  background-size:100%;
-  color:#fff;
-  margin:0;
-  padding:0;
-  font-weight:bold;
-}
+<!DOCTYPE html><html><head><title>Big</title><meta charset='utf-8'><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+<link href='big.css' rel='stylesheet' type='text/css' />
+<style>
+  body {
+    background-color:#444444;
+    color:#e9e9e9;
+  }
+  a {
+    background-color:#6fdc6f;
+    opacity:.8;
+  }
+  a:hover {
+    opacity:1;
+  }
+  ol {
+    margin-left:150px;
+  }
+  strong {
+    color:#d75a5a;
+  }
+  em {
+    text-decoration:underline;
+    color:#e9e9e9;
+  }
+  small {
+    font-size:.4em;
+    line-height:.4em;
+  }
+  .center { text-align:center; }
+  pre {
+    color:#c0c0c0;
+    font-weight:100;
+  }
+  pre span {
+    color:#4682B4;
+  }
+  pre em {
+    color:#e79e19;
+    text-decoration:none;
+  }
+</style>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-h1, h2, h3, p {
-  margin:0;
-}
+  ga('create', 'UA-52837030-1', 'auto');
+  ga('send', 'pageview');
 
-em, a {
-  font-style:normal;
-  color:#8dbd0c;
-}
+</script>
+<script src='big.js'></script></head><body>
 
-a {
-  background: #34d0e7;
-  color:#000;
-  text-decoration:none;
-}
+<div class="center">Web Maps<br>&<br>OSM</div>
 
-img {
-  width:100%;
-}
+<div>slides & examples @<br><a href="http://mapsam.com/osm10/pres">mapsam.com/osm10/</a></div>
 
-div {
-  cursor:pointer;
-  cursor:hand;
-  position:absolute;
-  top:0px;
-  left:0px;
-  padding:75px;
-  line-height:97%;
-}
+<div>order of events:
+  <ol>
+    <li>OSM <strong>Overpass</strong></li>
+    <li><strong>Leaflet</strong></li>
+    <li>Make a <strong>Map</strong></li>
+  </ol>
+</div>
 
-div.center {
-  text-align:center;
-}
+<div><strong>1. Overpass</strong><br>The Overpass API is a <em>read-only</em> API that serves up <em>custom</em> selected parts of the OSM map data. - <a href="http://wiki.openstreetmap.org/wiki/Overpass_API" target="_blank">src</a></div>
 
-div.imageText {
-  text-shadow:0px 0px 5px rgba(0,0,0,0.2);
-}
-</style><script type='text/javascript'>
-window.onload = function() {
-    var s = document.getElementsByTagName('div'), cur = 0, ti;
-    if (!s) return;
-    function go(n) {
-        cur = n;
-        var i = 1e3, e = s[n], t;
-        document.body.className = e.dataset.bodyclass || '';
-        for (var k = 0; k < s.length; k++) s[k].style.display = 'none';
-        e.style.display = 'inline';
-        e.style.fontSize = i + 'px';
-        if (e.firstChild && e.firstChild.nodeName === 'IMG') {
-            document.body.style.backgroundImage = 'url(' + e.firstChild.src + ')';
-            e.firstChild.style.display = 'none';
-            if ('classList' in e) e.classList.add('imageText');
-        } else {
-            document.body.style.backgroundImage = '';
-            document.body.style.backgroundColor = e.style.backgroundColor;
-        }
-        if (ti !== undefined) window.clearInterval(ti);
-        t = parseInt(e.dataset.timeToNext || 0, 10);
-        if (t > 0) ti = window.setTimeout(fwd, (t * 1000));
-        while (
-            e.offsetWidth > window.innerWidth ||
-            e.offsetHeight > window.innerHeight) {
-            e.style.fontSize = (i -= 2) + 'px';
-            if (i < 0) break;
-        }
-        e.style.marginTop = ((window.innerHeight - e.offsetHeight) / 2) + 'px';
-        if (window.location.hash !== n) window.location.hash = n;
-        document.title = e.textContent || e.innerText;
-    }
-    document.onclick = function() { go(++cur % (s.length)); };
-    function fwd() { go(Math.min(s.length - 1, ++cur)); }
-    function rev() { go(Math.max(0, --cur)); }
-    document.onkeydown = function(e) {
-        if (e.which === 39 || e.which === 34 || e.which === 40) fwd();
-        if (e.which === 37 || e.which === 33 || e.which === 38) rev();
-    };
-    document.ontouchstart = function(e) {
-        var x0 = e.changedTouches[0].pageX;
-        document.ontouchend = function(e) {
-            var x1 = e.changedTouches[0].pageX;
-            if (x1 - x0 < 0) fwd();
-            if (x1 - x0 > 0) rev();
-        };
-    };
-    function parse_hash() {
-        return Math.max(Math.min(
-            s.length - 1,
-            parseInt(window.location.hash.substring(1), 10)), 0);
-    }
-    if (window.location.hash) cur = parse_hash() || cur;
-    window.onhashchange = function() {
-        var c = parse_hash();
-        if (c !== cur) go(c);
-    };
-    go(cur);
-};
-</script></head><body>
-<div>welcome to <em>Big</em></div>
+<div>Query language based on bounding box and OSM Tags<br>
+<pre>
+&lt;<em>query</em> type="node"&gt;
+  &lt;<em>has-kv</em> k="<span>KEY</span>" v="<span>VALUE</span>"/&gt;
+  &lt;<em>bbox-query</em> <span>{{bbox}}</span>/&gt;
+&lt;/<em>query</em>&gt;
+</pre>
+</div>
+
+<div>OSM Tags<br><a href="http://taginfo.openstreetmap.org/">taginfo.openstreetmap.org/</a></div>
+
+<div><strong>tourism</strong>=museum<br><strong>amenity</strong>=bicycle_parking<br><strong>sport</strong>=hockey</div>
+
+
+
+</body>
+</html>
