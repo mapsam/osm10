@@ -27,6 +27,10 @@
     line-height:.4em;
   }
   .center { text-align:center; }
+  span {
+    font-family:monospace;
+    color:#888;
+  }
   pre {
     color:#c0c0c0;
     font-weight:100;
@@ -86,9 +90,16 @@
 
 <div><strong>2. Leaflet</strong><br>Leaflet is a modern <em>open-source</em> JavaScript library for mobile-friendly interactive maps - <a href="http://leafletjs.com/" target="_blank">src</a></div>
 
-<div>built on layers of data<br>
-  • tiles (hosted)<br>
-  • custom geometry
+<div>built on layers of web elements<br>
+  <pre>div, svg, canvas</pre><br>
+  generated from geographic data<br>
+  <pre>geojson, topojson</pre></div>
+
+<div>Leaflet relies on <strong>tiles</strong> for basemaps.</div>
+
+<div><a href="http://wiki.openstreetmap.org/wiki/Tiles">Tiles</a> are square <em>image files</em> stitched together, that contain specific data depending on your <em>scale</em>.</div>
+
+<div><img src="img/zooms.png"></div>
 
 
 </body>
