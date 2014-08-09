@@ -62,7 +62,7 @@
 <div>order of events:
   <ol>
     <li>OSM <strong>Overpass</strong></li>
-    <li><strong>Leaflet</strong></li>
+    <li><strong>Mapping Libraries (<em>leaflet</em>)</strong></li>
     <li>Make a <strong>Map</strong></li>
   </ol>
 </div>
@@ -82,16 +82,24 @@
 
 <div><strong>tourism</strong>=museum<br><strong>amenity</strong>=bicycle_parking<br><strong>sport</strong>=hockey</div>
 
+<div>HTTP<br>
+  <a href="http://www.overpass-api.de/api/xapi?way[oneway=yes][bbox=-122.45191,47.60104,-122.25191,47.70104]"><pre>http://www.overpass-api.de/api/xapi
+    ?way[oneway=yes]
+    [bbox=-122.45191,47.60104,-122.25191,47.70104]</pre></a>
+</div>
+
 <div><a href="http://overpass-turbo.eu/">overpass-turbo.eu</a> is a visual portal built on the shoulders of the Overpass API.</div>
 
 <div><img src="img/overpass-turbo.png"></div>
 
-<div>Turbo lets you download query results in <strong>geojson</strong> format, which can be <em>consumed</em> by <strong>leaflet</strong>.<br><br><a href="https://github.com/lyzidiamond/learn-geojson">learn-geojson</a></div>
+<div>Turbo lets you download query results in <strong>geojson</strong> format, which can be <em>consumed</em> by <strong>web mapping libraries</strong>.<br><br><a href="https://github.com/lyzidiamond/learn-geojson">learn-geojson</a></div>
 
-<div><strong>2. Leaflet</strong><br>Leaflet is a modern <em>open-source</em> JavaScript library for mobile-friendly interactive maps - <a href="http://leafletjs.com/" target="_blank">src</a></div>
+<div><strong>2. Mapping Libraries</strong><br>Built to to connect <em>spatial data</em> with <em>tile services</em> and provide specific functions to <em>interact &amp; manipulate</em> geographic information.</div>
+
+<div><strong>Leaflet</strong> is a modern <em>open-source</em> JavaScript library for mobile-friendly interactive maps - <a href="http://leafletjs.com/" target="_blank">src</a></div>
 
 <div>built on layers of web elements<br>
-  <pre>div, svg, canvas</pre><br>
+  <pre>div, img, svg</pre><br>
   generated from geographic data<br>
   <pre>geojson, topojson</pre></div>
 
@@ -102,10 +110,30 @@
 <div><img src="img/zooms.png"></div>
 
 <div><strong>3. Make A Map</strong><br>
-  We can gather data from the <em>overpass api</em> and inject it into <em>leaflet</em>!
+  Requires some knowledge in HTML &amp; JavaScript, but <em>simplicity</em> is the perspective in which these mapping libraries are built.
 </div>
 
 <div>Helper files<br>
-  <a href="https://github.com/cugos/leaflet-starter">github.com/cugos/leaflet-starter</a>
+  <a href="https://github.com/cugos/leaflet-starter">github.com/cugos/leaflet-starter</a></div>
+
+<div>
+<pre>
+<span>// initialize map</span>
+var <em>map</em> = L.map('map').setView([0, 0], 1);
+
+<span>// add tiles</span>
+L.<em>tileLayer</em>('YOUR-TILES').addTo(map);
+
+<span>// add geojson data</span>
+L.geoJson(<em>geojson</em>).addTo(map);
+</pre>
+</div>
+
+
+
+
+
+
+
 </body>
 </html>

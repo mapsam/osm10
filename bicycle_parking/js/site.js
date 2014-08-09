@@ -3,10 +3,7 @@ function init() {
   var rack = document.getElementById('rack-count');
 
 	var map = L.map('map').setView([47.650125, -122.350960], 16);
-	L.tileLayer('http://{s}.tiles.mapbox.com/v3/examples.map-i86nkdio/{z}/{x}/{y}.png', {
-		attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a>',
-		maxZoom: 18
-	}).addTo(map);
+	L.tileLayer('http://{s}.tiles.mapbox.com/v3/examples.map-i86nkdio/{z}/{x}/{y}.png').addTo(map);
 
 	L.geoJson(geojson, {
     onEachFeature: onEachFeature,
