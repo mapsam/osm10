@@ -116,6 +116,8 @@
 <div>Helper files<br>
   <a href="https://github.com/cugos/leaflet-starter">github.com/cugos/leaflet-starter</a></div>
 
+<div class="center"><strong>three lines</strong> of javascript is all it takes</div>
+
 <div>
 <pre>
 <span>// initialize map</span>
@@ -129,10 +131,33 @@ L.geoJson(<em>geojson</em>).addTo(map);
 </pre>
 </div>
 
+<div>in the <strong>data.js</strong> file define your geojson as a javascript variable</div>
 
+<div>
+<pre>
+<em>var</em> <span>geojson</span> = {
+  "type": "FeatureCollection",
+  "features": [
+    { ... }
+  ]
+}
+</pre>
+</div>
 
+<div>your data can be loaded in several ways, each useful for different purposes. LD <a href="http://lyzidiamond.com/posts/osgeo-august-meeting/">explains</a> this well in <a href="http://lyzidiamond.com/posts/external-geojson-and-leaflet-the-other-way/">two</a> blog posts.</div>
 
+<div><strong>bicycles!</strong><br>
+  1. <a href="http://overpass-turbo.eu">overpass</a> w/ a query for bicycle points<br>
+  2. load into leaflet starter
+  <pre>amenity=bicycle_parking</pre>
+</div>
 
+<div><a href="http://mapsam.com/osm10/bicycle_parking">mapsam.com/osm10/bicycle_parking</a></div>
+
+<div><strong>thanks!</strong><br>
+  github<br><a href="https://github.com/svmatthews">svmatthews</a><br>
+  twitter<br><a href="https://twitter.com/vancematthews">vancematthews</a>
+</div>
 
 
 </body>
